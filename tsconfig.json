@@ -1,0 +1,39 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "paths": {
+      "~assets/*": ["assets/*"],
+      "~components/*": ["components/*"],
+      "~configs/*": ["configs/*"],
+      "~constants/*": ["constants/*"],
+      "~helpers/*": ["helpers/*"],
+      "~hooks/*": ["hooks/*"],
+      "~layouts/*": ["layouts/*"],
+      "~pages/*": ["pages/*"],
+      "~router/*": ["router/*"],
+      "~services/*": ["services/*"],
+      "~stores/*": ["stores/*"],
+      "~types/*": ["types/*"],
+      "~ultils/*": ["ultils/*"]
+    },
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "esnext",
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react",
+    "noFallthroughCasesInSwitch": true,
+    "types": ["node"]
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node-modules", "src/**/*.stories.tsx", "src/**/*.test.tsx"]
+}
