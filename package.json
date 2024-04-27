@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "NODE_ENV=development webpack serve --config webpack/webpack.config.dev.reload.js --progress --color",
-    "build": "NODE_ENV=production webpack --config webpack/webpack.config.prod.js --progress --color"
+    "build": "NODE_ENV=production webpack --config webpack/webpack.config.prod.js --progress --color",
+    "update-lib": "yarn remove @my-library/react-components && yarn add https://github.com/dnhieu1992/react-ui.git"
   },
   "repository": {
     "type": "git",
@@ -56,8 +57,10 @@
     "webpack-pwa-manifest": "^4.3.0"
   },
   "dependencies": {
-    "@react-library/components": "https://github.com/dnhieu1992/react-ui.git",
+    "@my-library/react-components": "https://github.com/dnhieu1992/react-ui.git",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-icons": "^5.1.0",
+    "react-router-dom": "^6.22.3"
   }
 }

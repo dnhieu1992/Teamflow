@@ -1,0 +1,16 @@
+@import url('./reset.scss');
+.wrapper {
+  display: flex;
+}
+
+.page {
+  min-height: 100vh;
+  transition: all 0.2s;
+  &__left-toggle-open {
+    margin-left: 230px;
+  }
+  &__left-toggle-closed {
+    margin-left: 68px;
+  }
+  overflow-x: hidden;
+}

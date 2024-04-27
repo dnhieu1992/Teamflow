@@ -1,0 +1,2 @@
+export const LEFT_MENU_WIDTH_COLLAPSED = 68
+export const LEFT_MENU_WIDTH_EXPAND = 230
