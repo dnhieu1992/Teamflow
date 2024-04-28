@@ -1,3 +1,4 @@
+import './left-menu.scss'
 import React from 'react'
 import {
   Menu,
@@ -5,7 +6,6 @@ import {
   Sidebar,
   SubMenu,
 } from '@my-library/react-components/lib'
-import './left-menu.scss'
 import { FaUser, FaGraduationCap } from 'react-icons/fa'
 import { LuActivitySquare } from 'react-icons/lu'
 import { MdOutlineInbox } from 'react-icons/md'
@@ -18,9 +18,16 @@ interface LeftMenuProps {
 
 const LeftMenu = ({ toggle }: LeftMenuProps) => {
   return (
-    <Sidebar>
+    <Sidebar sx={{ height: '100vh' }} className="left-nav">
       <Menu>
-        <SubMenu title="Personal">
+        <SubMenu
+          title="Personal"
+          sx={{
+            '& .sub-menu-title': {
+              color: '#f7f7f7',
+            },
+          }}
+        >
           <MenuItem startIcon={<FaUser size={18} />}>My Profile</MenuItem>
           <MenuItem startIcon={<LuActivitySquare fontSize={18} />}>
             My Timeline

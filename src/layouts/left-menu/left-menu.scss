@@ -1,20 +1,5 @@
-.left-side-bar {
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  width: 68px;
-  padding: 0 10px;
-  box-shadow: 0 3px 13px 0 rgba(18, 43, 70, 0.1);
-  position: fixed;
-  left: 0;
-  height: 100%;
-  transition: width 0.2s;
-  &__toggle {
-    &--open {
-      width: 230px;
-    }
-    &--closed {
-      width: 68px;
-    }
+.left-nav {
+  .sub-menu-title {
+    color: #7f7f7f !important;
   }
 }
