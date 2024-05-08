@@ -1,0 +1,107 @@
+.messages {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  border: 1px solid #e0dfdb;
+  border-radius: 10px;
+  width: 100%;
+  margin-top: 10px;
+  height: calc(100vh - 120px);
+  &__nav-panel {
+    width: 35%;
+    border-right: 1px solid #e0dfdb;
+    &__header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 16px;
+      &__title {
+        font-size: 24px;
+        color: #393e41;
+        font-weight: 500;
+      }
+      &__actions {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        column-gap: 16px;
+      }
+      svg {
+        cursor: pointer;
+        scale: 1.2;
+      }
+    }
+  }
+  &__content {
+    width: 65%;
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: flex-start;
+    &__header {
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      border-bottom: 1px solid #e0dfdb;
+      width: 100%;
+      padding: 0 16px;
+      column-gap: 8px;
+      img {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+      }
+      svg {
+        margin-left: auto;
+        cursor: pointer;
+      }
+    }
+  }
+  &__threads {
+    padding: 8px;
+    overflow-y: auto;
+    height: calc(100vh - 180px);
+    &__item {
+      padding: 16px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      cursor: pointer;
+      column-gap: 8px;
+      margin-top: 4px;
+      &__avatar {
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+      &__content {
+        color: #393e41;
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+        flex-direction: column;
+        row-gap: 8px;
+        .last-updated-at {
+          font-size: 14px;
+          color: #aaaaaa;
+          &::before {
+            content: '. ';
+          }
+        }
+      }
+      &--actived {
+        background: linear-gradient(
+            0deg,
+            rgba(255, 255, 255, 0.9),
+            rgba(255, 255, 255, 0.9)
+          ),
+          #ff703d;
+        border-radius: 8px;
+      }
+    }
+  }
+}

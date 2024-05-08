@@ -1,21 +1,25 @@
 import React from 'react'
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Activity from '~pages/activity'
 import LeftMenu from '~layouts/left-menu'
+import Header from '~layouts/header/Header'
+import Messages from '~pages/messages'
 
 const App = () => {
   return (
-    <div className="wrapper">
+    <BrowserRouter>
       <LeftMenu toggle={false} />
-      <div className={`page page__left-toggle-${'closed'}`}>
-        <Router>
+      <Header />
+      <div className="page-content">
+        <div className="page-content__container">
           <Routes>
             <Route path="/" element={<Activity />} />
             <Route path="/activity" element={<Activity />} />
+            <Route path="/messages" element={<Messages />} />
           </Routes>
-        </Router>
+        </div>
       </div>
-    </div>
+    </BrowserRouter>
   )
 }
 

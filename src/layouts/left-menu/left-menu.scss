@@ -2,4 +2,12 @@
   .sub-menu-title {
     color: #7f7f7f !important;
   }
+  &__menu-item {
+    &__text {
+      font-size: 1rem;
+    }
+  }
+  svg {
+    color: #7f7f7f;
+  }
 }

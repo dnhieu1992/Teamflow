@@ -1,11 +1,22 @@
 @import './reset.scss';
 @import './root.scss';
 
-.wrapper {
+#app {
   display: flex;
 }
 
-.page {
-  min-height: 100vh;
-  transition: all 0.2s;
+.page-content {
+  margin-top: 80px;
+  overflow: auto;
+  width: calc(100% - 230px);
+  &__container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 85%;
+    margin: 0 auto;
+    overflow: auto;
+    padding: 16px 0;
+    height: calc(100vh - 76px);
+  }
 }
