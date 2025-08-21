@@ -1,0 +1,26 @@
+{
+  "name": "sm-chat",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "webpack serve",
+    "build": "webpack --mode production",
+    "lint": "eslint src --ext .ts,.tsx"
+  },
+  "dependencies": {
+    "react": "^18",
+    "react-dom": "^18",
+    "react-router-dom": "^6",
+    "@mui/material": "^5"
+  },
+  "devDependencies": {
+    "webpack": "^5",
+    "webpack-cli": "^5",
+    "webpack-dev-server": "^5",
+    "ts-loader": "^9",
+    "typescript": "^5",
+    "html-webpack-plugin": "^5",
+    "sass": "^1",
+    "css-loader": "^7",
+    "style-loader": "^4"
+  }
+}
