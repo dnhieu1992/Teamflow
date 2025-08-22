@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import { BrowserRouter, Routes, Route, Link, Navigate } from 'react-router-dom'
 
 const FeedRoutes = React.lazy(() => import('sm_feed/Routes'))

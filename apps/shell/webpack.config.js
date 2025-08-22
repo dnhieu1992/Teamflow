@@ -5,7 +5,7 @@ const { ModuleFederationPlugin } = require('webpack').container
 const deps = require("./package.json").dependencies || {};
 
 module.exports = {
-  entry: './src/main.tsx',
+  entry: './src/bootstrap.tsx',
   mode: process.env.NODE_ENV ?? 'development',
   devtool: 'source-map',
   devServer: { port: 3000, historyApiFallback: true },
@@ -38,23 +38,22 @@ module.exports = {
         react: {
           singleton: true,
           strictVersion: false,
-          requiredVersion: false /* no eager */,
+          requiredVersion: false,
+          eager: false,
         },
         'react-dom': {
           singleton: true,
           strictVersion: false,
           requiredVersion: false,
+          eager: false,
         },
         'react-router-dom': {
           singleton: true,
           strictVersion: false,
           requiredVersion: false,
+          eager: false,
         },
-        'react/jsx-runtime': {
-          singleton: true,
-          strictVersion: false,
-          requiredVersion: deps.react,
-        },
+
       },
     }),
     new HtmlWebpackPlugin({

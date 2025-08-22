@@ -1,1 +1,1 @@
-import('./main') 
+import('./main').catch(err => console.error('Error loading main module:', err)) 
