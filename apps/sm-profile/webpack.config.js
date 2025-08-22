@@ -2,11 +2,21 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { ModuleFederationPlugin } = require('webpack').container
 
+const deps = require('./package.json').dependencies || {}
+
 module.exports = {
   entry: './src/bootstrap.tsx',
   mode: process.env.NODE_ENV ?? 'development',
   devtool: 'source-map',
-  devServer: { port: 3002, historyApiFallback: true },
+  devServer: {
+    port: 3002,
+    historyApiFallback: true,
+    hot: true, // or false temporarily if needed
+    headers: { 'Access-Control-Allow-Origin': '*' },
+  },
+  optimization: {
+    runtimeChunk: false,
+  },
   output: {
     filename: '[name].[contenthash].js',
     publicPath: 'auto',
@@ -26,9 +36,26 @@ module.exports = {
         './Routes': './src/routes',
       },
       shared: {
-        react: { singleton: true, requiredVersion: 'auto' },
-        'react-dom': { singleton: true, requiredVersion: 'auto' },
-        'react-router-dom': { singleton: true, requiredVersion: 'auto' },
+        react: {
+          singleton: true,
+          strictVersion: false,
+          requiredVersion: false /* no eager */,
+        },
+        'react-dom': {
+          singleton: true,
+          strictVersion: false,
+          requiredVersion: false,
+        },
+        'react-router-dom': {
+          singleton: true,
+          strictVersion: false,
+          requiredVersion: false,
+        },
+        'react/jsx-runtime': {
+          singleton: true,
+          strictVersion: false,
+          requiredVersion: deps.react,
+        },
       },
     }),
     new HtmlWebpackPlugin({

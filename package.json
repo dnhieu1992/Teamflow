@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "Social Media Sample",
   "private": true,
-  "packageManager": "pnpm@9",
+  "packageManager": "pnpm@9.15.4",
   "scripts": {
     "dev": "turbo run dev --parallel",
     "build": "turbo run build",
@@ -16,6 +16,13 @@
   },
   "devDependencies": {
     "turbo": "^2.0.0"
+  },
+  "pnpm": {
+    "overrides": {
+      "react": "18.3.1",
+      "react-dom": "18.3.1",
+      "react-router-dom": "6.27.0"
+    }
   },
   "keywords": [],
   "author": "dnhieu1992",

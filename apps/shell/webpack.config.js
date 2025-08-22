@@ -2,11 +2,16 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { ModuleFederationPlugin } = require('webpack').container
 
+const deps = require("./package.json").dependencies || {};
+
 module.exports = {
   entry: './src/main.tsx',
   mode: process.env.NODE_ENV ?? 'development',
   devtool: 'source-map',
   devServer: { port: 3000, historyApiFallback: true },
+  optimization: {
+    runtimeChunk: false,
+  },
   output: {
     filename: '[name].[contenthash].js',
     publicPath: 'auto',
@@ -25,14 +30,31 @@ module.exports = {
         sm_feed: `sm_feed@${
           process.env.FEED_URL ?? 'http://localhost:3001'
         }/remoteEntry.js`,
-        sm_chat: `sm_chat@${
-          process.env.CHAT_URL ?? 'http://localhost:3002'
+        sm_chat: `sm-profile@${
+          process.env.PROFILE_URL ?? 'http://localhost:3002'
         }/remoteEntry.js`,
       },
       shared: {
-        react: { singleton: true, requiredVersion: 'auto' },
-        'react-dom': { singleton: true, requiredVersion: 'auto' },
-        'react-router-dom': { singleton: true, requiredVersion: 'auto' },
+        react: {
+          singleton: true,
+          strictVersion: false,
+          requiredVersion: false /* no eager */,
+        },
+        'react-dom': {
+          singleton: true,
+          strictVersion: false,
+          requiredVersion: false,
+        },
+        'react-router-dom': {
+          singleton: true,
+          strictVersion: false,
+          requiredVersion: false,
+        },
+        'react/jsx-runtime': {
+          singleton: true,
+          strictVersion: false,
+          requiredVersion: deps.react,
+        },
       },
     }),
     new HtmlWebpackPlugin({
